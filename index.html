@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <form action="" id>
+        <label for="">email</label>
+        <input type="email" id="email"><br>
+        <p id="result"></p>
+        <label for="">password</label>
+        <input type="password" id="password"><br>
+        <p id="results"></p>
+        <button type="submit" onclick="abc()">submit</button>
+    </form>
+    
+
+    <script>
+       function abc(){
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const passwordPattern = /^\d{8}$/;
+
+
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("password").value
+
+        if (emailPattern.test(email)) {
+      document.getElementById("email").style.border = "solid 2px green";
+      document.getElementById('email').style.color = "green";
+    } else {
+      document.getElementById("email").style.border = "solid 2px red";
+      document.getElementById('result').innerText = "The email address is invalid.";
+      document.getElementById('email').style.color = "red";
+    }
+
+    if(passwordPattern.test(password)){
+        document.getElementById("password").style.border="solid 2px green";
+        document.getElementById("password").style.color="green"
+
+    }else{
+        document.getElementById("password").style.border="solid 2px red";
+        document.getElementById("results").innerText="the password invalid";
+        document.getElementById("password").style.color="red"
+
+
+    }
+        event.preventDefault();
+
+       }
+    </script>
+</body>
+</html>
